@@ -81,7 +81,26 @@ CDLI_SPECIFIC_TIDS = {
     # raw ATF: prologue + all 282 laws + epilogue), missed because it's a
     # CDLI-bulk entry, not an eBL fragment.
     "P249253": "Hammurabi (Law Code Stele)",
+    # NOTE: the Cyrus Cylinder (P386349, BM 90920) was tried here
+    # (session 2026-09-05) and reverted -- CDLI-bulk's own raw ATF for this
+    # tablet_id is a shorter, purely-phonetic transliteration (5,516 chars,
+    # 1,582 signs) than the version ORACC's own edition of it already
+    # contributes to the base corpus (5,800 chars, 1,866 signs, standard
+    # logogram-capitalized transliteration, plus opening/colophon lines the
+    # CDLI-bulk ATF lacks entirely). Re-adding it here would silently
+    # regress that tablet_id to the worse version, since add_cdli_bulk_
+    # documents.py always lets a showcase/backfill row displace the base
+    # corpus's own copy. If it's wanted as a showcase example again, do it
+    # by forcing the existing ORACC-sourced row's split (and registering a
+    # work label for it), not by re-deriving text from CDLI-bulk here.
 }
+
+# CDLI's own catalogue leaves some fields blank for records that are
+# otherwise well documented externally. Keyed by tablet_id, merged over
+# whatever cdli_cat.csv itself provides -- only add an entry here after
+# external verification, the same bar CDLI_SPECIFIC_TIDS's own docstring
+# comments hold themselves to.
+CDLI_METADATA_OVERRIDES = {}
 
 
 def index_cdli_bodies(atf_path: str) -> dict[str, str]:
@@ -224,7 +243,7 @@ def main() -> None:
                 continue
 
             idt = tid[1:].lstrip("0")
-            meta = cdli_meta.get(idt) or cdli_meta.get(str(int(idt))) or {}
+            meta = {**(cdli_meta.get(idt) or cdli_meta.get(str(int(idt))) or {}), **CDLI_METADATA_OVERRIDES.get(tid, {})}
             out.write(json.dumps({
                 "tablet_id": tid,
                 "work": work,

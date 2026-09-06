@@ -74,7 +74,40 @@ if __name__ == "__main__":
                               "checkpoint resident on the GPU the whole time it runs, so this script only "
                               "ever has whatever VRAM that leaves free to work with.")
     parser.add_argument("--out_dir", default=os.path.join(BASE_DIR, "results_final", "embeddings"))
+    parser.add_argument("--incremental", action="store_true",
+                         help="Load existing doc_embeddings.npy/doc_meta.json from --out_dir (if present) and only "
+                              "run inference for tablet_ids not already in there, appending the result -- for "
+                              "adding a handful of new documents (e.g. a new showcase text) without a full ~2h "
+                              "corpus-wide recompute. Do NOT use this after checkpoints_final_vision itself "
+                              "changes (retraining) -- the kept embeddings would then be stale, mixed with fresh "
+                              "ones from different weights; do a full recompute (no --incremental) instead.")
     args = parser.parse_args()
+
+    existing_keys = set()  # {(tablet_id, split)}
+    embeddings, meta = [], []
+    if args.incremental:
+        emb_path = os.path.join(args.out_dir, "doc_embeddings.npy")
+        meta_path = os.path.join(args.out_dir, "doc_meta.json")
+        if os.path.exists(emb_path) and os.path.exists(meta_path):
+            old_embeddings = list(np.load(emb_path))
+            with open(meta_path, encoding="utf-8") as f:
+                old_meta = json.load(f)
+            # Keyed on (tablet_id, split), not tablet_id alone: a tablet_id
+            # can change split across a corpus rebuild (e.g. a showcase
+            # addition displacing an existing base-corpus copy of the same
+            # tablet_id into a different split, per add_cdli_bulk_documents.py's
+            # own "backfill's own split wins" rule) -- keying on tablet_id
+            # alone would silently keep that stale, now-wrong-split row
+            # instead of recomputing it. Rows whose (tablet_id, split) no
+            # longer matches anything in the current corpus are dropped
+            # below rather than carried over.
+            for m, e in zip(old_meta, old_embeddings):
+                existing_keys.add((m["tablet_id"], m["split"]))
+                meta.append(m)
+                embeddings.append(e)
+            print(f"Incremental: {len(existing_keys)} (tablet_id, split) rows loaded from the existing file.")
+        else:
+            print("Incremental requested but no existing doc_embeddings.npy/doc_meta.json found -- doing a full run.")
 
     with open(args.label_config, encoding="utf-8") as f:
         label_configs = json.load(f)
@@ -98,12 +131,27 @@ if __name__ == "__main__":
     print(f"Loading dataset {args.data_dir} ({args.hf_config})...")
     ds = load_dataset(args.data_dir, args.hf_config)
 
+    if existing_keys:
+        current_keys = {(tid, split) for split in ds for tid in ds[split]["tablet_id"]}
+        keep = [k in current_keys for k in zip((m["tablet_id"] for m in meta), (m["split"] for m in meta))]
+        n_dropped = len(keep) - sum(keep)
+        if n_dropped:
+            meta = [m for m, k in zip(meta, keep) if k]
+            embeddings = [e for e, k in zip(embeddings, keep) if k]
+            existing_keys = {(m["tablet_id"], m["split"]) for m in meta}
+            print(f"Incremental: dropped {n_dropped} stale rows no longer matching a (tablet_id, split) in the "
+                  f"current corpus (moved to a different split, or removed) -- will recompute/skip fresh below.")
+
     def label_name(task: str, idx: Optional[int]) -> Optional[str]:
         return label_names[task][idx] if idx is not None and idx != -100 else None
 
-    embeddings, meta = [], []
     for split in ds:
         rows = ds[split]
+        if existing_keys:
+            rows = rows.filter(lambda ex: (ex["tablet_id"], split) not in existing_keys)
+        if len(rows) == 0:
+            print(f"{split}: nothing new, skipping.")
+            continue
         for start in tqdm(range(0, len(rows), args.batch_size), desc=split):
             batch = rows[start:start + args.batch_size]
             texts = [mark_damage_signals((t or "")[:args.context_char_max]) for t in batch["text"]]
@@ -129,4 +177,6 @@ if __name__ == "__main__":
     np.save(os.path.join(args.out_dir, "doc_embeddings.npy"), arr)
     with open(os.path.join(args.out_dir, "doc_meta.json"), "w", encoding="utf-8") as f:
         json.dump(meta, f, ensure_ascii=False)
-    print(f"Saved {arr.shape[0]} embeddings (dim={arr.shape[1]}) to {args.out_dir}")
+    n_new = arr.shape[0] - len(existing_keys)
+    print(f"Saved {arr.shape[0]} embeddings (dim={arr.shape[1]}) to {args.out_dir}"
+          + (f" ({n_new} newly computed, {len(existing_keys)} kept from the existing file)" if existing_keys else ""))
