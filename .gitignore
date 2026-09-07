@@ -34,8 +34,6 @@ results_final/embeddings/
 # Regenerable via the query in kanesh_article/ session notes -- a filtered
 # copy of data already in data/ (also gitignored)
 kanesh_article/kanesh_tablets.jsonl
-# Re-fetchable from CDLI's own photo mirror at will (see showcase_tablets.md)
-kanesh_article/images/
 
 # Old runs, superseded checkpoints/analysis (session 2026-08-12 cleanup)
 archive/
