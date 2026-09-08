@@ -93,6 +93,28 @@ CDLI_SPECIFIC_TIDS = {
     # corpus's own copy. If it's wanted as a showcase example again, do it
     # by forcing the existing ORACC-sourced row's split (and registering a
     # work label for it), not by re-deriving text from CDLI-bulk here.
+
+    # Kanesh article showcase tablets (kanesh_article/showcase_tablets.md) --
+    # researched/verified there (Michel 2020 translations, bibliography,
+    # family-archive connections), none of them present in the base corpus
+    # at all, so no risk of the Cyrus Cylinder regression above. Forced into
+    # test the same as every other showcase entry: these exist specifically
+    # as recognizable qualitative-demo examples, and must be held out of
+    # training. #5-10 of the showcase file are NOT here on purpose -- those
+    # are already in the base corpus (mostly train) as ordinary CuneiML/
+    # ORACC rows; left alone per explicit instruction, not moved.
+    "P333901": "Kanesh (Zizizi -- parents' letter)",
+    "P357584": "Kanesh (Puzur-Assur to Waqqurtum)",
+    "P297482": "Kanesh (Lamassi to Pushu-ken)",
+    "P358584": "Kanesh (Taram-Kubi -- famine letter)",
+    "P359100": "Kanesh (marriage contract, Puzur-Istar)",
+    "P368333": "Kanesh (marriage contract, Galuya)",
+    "P359402": "Kanesh (marriage contract, Laqepum)",
+    # Ea-nasir complaint tablet -- docs/future_showcase_candidates.md.
+    # Different period/region entirely (Ur, Old Babylonian, Dilmun copper
+    # trade), kept out of the Kanesh article on purpose, but still wanted
+    # here as its own general-audience showcase example.
+    "P414985": "Ea-nasir complaint tablet",
 }
 
 # CDLI's own catalogue leaves some fields blank for records that are
