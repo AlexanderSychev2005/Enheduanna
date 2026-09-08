@@ -23,10 +23,17 @@ from datasets import Dataset, DatasetDict
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from src.data_pipeline.build_vision_hf_dataset import tablet_split_map
+from src.data_pipeline.cuneiform_unicode import atf_to_lines
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 COMBINED_PATH = os.path.join(BASE_DIR, "data", "processed", "combined_unique.jsonl")
 OUT_DIR = os.path.join(BASE_DIR, "data", "processed", "hf_dataset_signs_translit")
+
+_DAMAGE_ONLY = {"x", "[#]"}
+
+
+def _needs_backfill(signs: list[str], text: str) -> bool:
+    return not [s for s in signs if s not in _DAMAGE_ONLY] and len(text) > 10
 
 
 def main() -> None:
@@ -34,10 +41,25 @@ def main() -> None:
 
     rows_by_split = {"train": [], "validation": [], "test": []}
     n_unmatched = 0
+    n_backfilled = 0
     with open(COMBINED_PATH, encoding="utf-8") as f:
         for line in f:
             r = json.loads(line)
             signs, text, tid = r.get("signs") or [], (r.get("text") or "").strip(), r.get("tablet_id")
+            # combined_unique.jsonl still carries 'signs' from before
+            # extract_utf8()/atf_to_lines() were fixed for the "v"/"s"/"r"
+            # GDL node shapes and the literal "..." token (see commit
+            # fa535d6) -- rerunning the whole ORACC/CuneiML extraction to
+            # regenerate this file fresh would risk a different dedup
+            # outcome and shift line membership per tablet, so instead
+            # re-derive 'signs' from this row's own unchanged 'text', same
+            # trick fix_empty_signs.py used for the documents config.
+            if _needs_backfill(signs, text):
+                lines, _misses, _tok = atf_to_lines("1. " + text)
+                new_signs = lines[0]["signs"] if lines else []
+                if new_signs:
+                    signs = new_signs
+                    n_backfilled += 1
             if len(signs) < 2 or not text:
                 continue
             split = split_of.get(tid)
@@ -48,7 +70,8 @@ def main() -> None:
 
     ds = DatasetDict({split: Dataset.from_list(rows) for split, rows in rows_by_split.items()})
     ds.save_to_disk(OUT_DIR)
-    print(f"Saved to {OUT_DIR} ({n_unmatched} rows with no tablet_id in the authoritative split map, skipped)")
+    print(f"Saved to {OUT_DIR} ({n_unmatched} rows with no tablet_id in the authoritative split map, skipped; "
+          f"{n_backfilled} rows had 'signs' re-derived from 'text')")
     for split in ds:
         print(f"  {split}: {len(ds[split])}")
 
