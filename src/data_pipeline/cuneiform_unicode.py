@@ -216,12 +216,13 @@ def atf_to_lines(raw_text: str) -> tuple[list[dict], Counter, int]:
                 # silently vanishing from signs instead of the rest of the
                 # line, since misses are never appended), unlike the
                 # single-damaged-sign case one branch down ("x" is in
-                # _S_TOKENS and gets kept). Represented with the same
-                # compressed-gap token prepare_oracc.py's extract_utf8
-                # already uses for the same concept, so real gaps from
-                # either source share one vocabulary entry.
+                # _S_TOKENS and gets kept). Kept as the literal "..." token
+                # (same spelling ATF/'text' already uses for this, and what
+                # prepare_oracc.py's extract_utf8 uses too) rather than a
+                # separate made-up symbol -- there's no downstream consumer
+                # that needs 'signs' and 'text' to spell this differently.
                 total_tokens += 1
-                signs.append("[#]")
+                signs.append("...")
             elif t in _TEXT2SIGN:
                 total_tokens += 1
                 signs.append(_TEXT2SIGN[t])

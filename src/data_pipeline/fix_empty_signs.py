@@ -1,5 +1,5 @@
 """Backfill the 'signs' column for existing hf_dataset_documents_with_cdli_bulk
-rows where it is empty or carries no real glyphs (only "x"/"[#]" damage
+rows where it is empty or carries no real glyphs (only "x"/"..." damage
 markers) despite substantial real transliteration text.
 
 Confirmed root causes (see session notes / commit messages for the
@@ -8,7 +8,7 @@ measurement): (1) prepare_oracc.py's extract_utf8() never resolved ORACC's
 shapes -- only "utf8" nodes and ellipsis gaps -- so real word content was
 silently dropped for any ORACC project using those shapes (confirmed:
 most of them). (2) cuneiform_unicode.atf_to_lines() treated a literal "..."
-token as an ordinary vocabulary miss instead of the "[#]" gap marker, so it
+token as an ordinary vocabulary miss instead of the "..." gap marker, so it
 vanished from 'signs' instead of being recorded. Both are now fixed at the
 source.
 
@@ -38,7 +38,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 DOCS_DIR = os.path.join(BASE_DIR, "data", "processed", "hf_dataset_documents_with_cdli_bulk")
 OUT_DIR = DOCS_DIR + "_fixed"
 
-_DAMAGE_ONLY = {"x", "[#]"}
+_DAMAGE_ONLY = {"x", "..."}
 
 
 def needs_backfill(signs: list[str], text: str) -> bool:

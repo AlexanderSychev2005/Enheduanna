@@ -29,7 +29,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 COMBINED_PATH = os.path.join(BASE_DIR, "data", "processed", "combined_unique.jsonl")
 OUT_DIR = os.path.join(BASE_DIR, "data", "processed", "hf_dataset_signs_translit")
 
-_DAMAGE_ONLY = {"x", "[#]"}
+_DAMAGE_ONLY = {"x", "..."}
 
 
 def _needs_backfill(signs: list[str], text: str) -> bool:

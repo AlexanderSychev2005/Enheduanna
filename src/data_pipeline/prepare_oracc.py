@@ -38,10 +38,9 @@ def extract_utf8(gdl_list: list[dict], out: list[str]) -> None:
             # and is handled by the branch above), this node carries no
             # utf8/seq/group and was previously skipped entirely, silently
             # deleting the gap and making its neighbors look adjacent.
-            # Represent it with the same compressed-gap token the training
-            # collator already uses for synthetic damage, so real and
-            # simulated gaps share one vocabulary entry.
-            out.append("[#]")
+            # Kept as the literal "..." token, same spelling 'text' already
+            # uses for this -- no reason for 'signs' to spell it differently.
+            out.append("...")
         elif "seq" in g:
             extract_utf8(g["seq"], out)
         elif "group" in g:
@@ -56,7 +55,7 @@ def extract_utf8(gdl_list: list[dict], out: list[str]) -> None:
             # unhandled -- silently dropped every real word in projects
             # (confirmed: ADART astronomical diaries, and most others
             # sampled) whose GDL spells ordinary content this way instead
-            # of via "utf8", leaving 'signs' with nothing but the "x"/"[#]"
+            # of via "utf8", leaving 'signs' with nothing but the "x"/"..."
             # damage markers even though 'text' (built from "frag"
             # separately) was complete. Resolved through the same sign
             # vocabulary atf_to_lines uses for the CDLI-bulk path, so both
@@ -74,13 +73,13 @@ def parse_corpus_json(data: dict, metadata: dict) -> list[dict]:
 
     def flush():
         if current_raw or current_signs:
-            # Collapse consecutive "[#]" markers into one: ORACC sometimes
+            # Collapse consecutive "..." markers into one: ORACC sometimes
             # records the same physical gap via ellipsis nodes on both the
             # word before and after it, which would otherwise inflate one
             # real lacuna into two adjacent gap tokens.
             signs = []
             for s in current_signs:
-                if s == "[#]" and signs and signs[-1] == "[#]":
+                if s == "..." and signs and signs[-1] == "...":
                     continue
                 signs.append(s)
             line_obj = {"raw": " ".join(current_raw), "signs": signs, "num": current_num}
