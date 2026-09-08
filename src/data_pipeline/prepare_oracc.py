@@ -6,6 +6,8 @@ from typing import Optional
 
 from tqdm import tqdm
 
+from src.data_pipeline.cuneiform_unicode import resolve_sign_token
+
 # ORACC projects that are lexical lists / gazetteers / catalogue indexes with
 # no actual corpusjson text -- skipping them up front avoids opening 47 zips
 # just to find nothing.
@@ -44,6 +46,26 @@ def extract_utf8(gdl_list: list[dict], out: list[str]) -> None:
             extract_utf8(g["seq"], out)
         elif "group" in g:
             extract_utf8(g["group"], out)
+        elif "v" in g or "s" in g or "r" in g:
+            # A real, resolved sign spelled ORACC's other three ways, none
+            # of which carry a top-level "utf8" field: "v" (syllabic
+            # phonetic reading, e.g. "ina"), "s" (logogram/Sumerogram name,
+            # e.g. "GE₆", always already split one-node-per-sign even
+            # for dotted compounds like AN.KU₁₀), "r" (numeral
+            # value inside a numeral node's "seq", e.g. "28"). Previously
+            # unhandled -- silently dropped every real word in projects
+            # (confirmed: ADART astronomical diaries, and most others
+            # sampled) whose GDL spells ordinary content this way instead
+            # of via "utf8", leaving 'signs' with nothing but the "x"/"[#]"
+            # damage markers even though 'text' (built from "frag"
+            # separately) was complete. Resolved through the same sign
+            # vocabulary atf_to_lines uses for the CDLI-bulk path, so both
+            # sources agree; a miss is dropped silently, same ~1% rate as
+            # everywhere else in this project that resolves signs from text.
+            token = g.get("v") or g.get("s") or g.get("r")
+            sign = resolve_sign_token(token) if token else None
+            if sign:
+                out.append(sign)
 
 
 def parse_corpus_json(data: dict, metadata: dict) -> list[dict]:

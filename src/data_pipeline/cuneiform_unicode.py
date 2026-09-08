@@ -52,6 +52,22 @@ _TEXT2SIGN = _load_vocab()
 
 _S_TOKENS = ("<B>", "<M>", "<S>", "<D>", "<munus>", "<ansze>", "<ki>", "<disz>", "x")
 
+_SUBSCRIPT_TO_ASCII = str.maketrans("₀₁₂₃₄₅₆₇₈₉", "0123456789")
+
+
+def resolve_sign_token(token: str) -> Optional[str]:
+    """Look up a single already-split token (one phonetic syllable, one
+    logogram name, or one numeral -- never a hyphenated/dotted cluster)
+    against the Unicode sign vocabulary. Tried as-is first, then normalized
+    (Unicode subscript digits -> ASCII, lowercased), since ORACC's own GDL
+    JSON spells e.g. "GE₆" where the vocab's own key is "ge6" -- prepare_oracc.py's
+    extract_utf8 relies on this for its "v"/"s"/"r" branch. Returns None on
+    a genuine miss, same ~1% rate as everywhere else in this project that
+    resolves tokens against this vocabulary."""
+    if token in _TEXT2SIGN:
+        return _TEXT2SIGN[token]
+    return _TEXT2SIGN.get(token.translate(_SUBSCRIPT_TO_ASCII).lower())
+
 
 def _remove_at(x: str) -> Optional[str]:
     if x.endswith("@c)") or x.endswith("@t)"):
@@ -194,6 +210,18 @@ def atf_to_lines(raw_text: str) -> tuple[list[dict], Counter, int]:
                             signs.append(_TEXT2SIGN[alt])
                         else:
                             misses[x] += 1
+            elif t == "...":
+                # An unknown-length gap in the transliteration -- was
+                # falling through to the generic miss branch below (and so
+                # silently vanishing from signs instead of the rest of the
+                # line, since misses are never appended), unlike the
+                # single-damaged-sign case one branch down ("x" is in
+                # _S_TOKENS and gets kept). Represented with the same
+                # compressed-gap token prepare_oracc.py's extract_utf8
+                # already uses for the same concept, so real gaps from
+                # either source share one vocabulary entry.
+                total_tokens += 1
+                signs.append("[#]")
             elif t in _TEXT2SIGN:
                 total_tokens += 1
                 signs.append(_TEXT2SIGN[t])
