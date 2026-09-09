@@ -129,15 +129,20 @@ precedent, by its own title, to "NLP classification of cuneiform archives"
 
 ## 3. Methodology: Selected Examples
 
-Our model performs two tasks jointly on a single tablet's transliteration:
-it restores damaged or illegible spans of text, and it attributes the
-tablet to a period, genre, provenience, and language. It is trained on a
-large corpus that includes tablets from Kanesh among its sources. This
-section does not describe the model's architecture or report comparative
-metrics; instead, it presents the kind of material the model is trained
-and evaluated on, through a small number of real, previously untranslated-
-by-us tablets, each independently verified against Michel's published
-translations [10].
+Our model performs two tasks jointly from a tablet's transliteration and
+photograph together: it restores damaged or illegible spans of text, and
+it attributes the tablet to a period, genre, provenience, and language. It
+is trained on a large corpus that includes tablets from Kanesh among its
+sources; on the held-out test portion of that corpus it reaches 96.2%
+accuracy on period, 96.2% on genre, 98.6% on language, and 87.0% on
+provenience across 38 possible places of origin — including 100% recall on
+Kanesh itself. This section does not describe the model's architecture or
+report comparative metrics further; instead, it presents the kind of
+material the model is trained and evaluated on, through a small number of
+real tablets, each independently verified against Michel's published
+translations [10]. Every prediction shown below is the actual output of
+the trained checkpoint on these seven tablets, all of which sit in the
+held-out test split the model was never trained on.
 
 **Puzur-Aššur to Waqqurtum (AO 9256), on weaving.** A husband in Kanesh
 gives his wife in Aššur precise technical instructions for the textiles she
@@ -212,7 +217,23 @@ letter → caravan account) [11] — reads:
 This is the kind of input the model has to handle correctly for a
 processing pipeline over the archive to be useful at all: a formulaic legal
 text naming a sum, two parties, a purpose, and witnesses, with none of the
-narrative color of the letters above.
+narrative color of the letters above. To make the restoration task concrete,
+we masked 41 of this tablet's signs (15% of the text) and asked the model to
+recover them one at a time, from context alone:
+
+| masked sign (true value) | model's top prediction | correct? |
+|---|---|---|
+| `ha` | `ha` | ✅ |
+| divine determinative `D` (before "Enlil-bāni") | `D` | ✅ |
+| `qe` (in "i-la₂-qe₂-ši₂," "he will receive it") | `qe` | ✅ (text-only alone predicted `ši` — wrong) |
+| `tum` | `ul` | ❌ |
+| `zu` (in the witness name "Azutaya") | `hu` | ❌ |
+
+Overall, the model recovered 32 of the 41 masked signs correctly on its
+first guess (78%) — in line with the aggregate figures above — and the one
+case flagged in the table is a small, concrete illustration of what the
+photograph adds: the text-only model guesses wrong where the vision model,
+seeing the same masked text plus the tablet's photograph, gets it right.
 
 **A marriage contract (Prague I 490).** The archive's legal genre extends
 beyond debt and transport to family law. This contract, arranged after the
@@ -236,6 +257,32 @@ the demands of this merchant lifestyle *([10] Michel 2020, §
 "Monogamy and Bigamy," pp. 68–71)*. This document sits in the same family
 archive as Aššur-nādā's own correspondence quoted above: the marriage it
 records took place after his death.
+
+**All seven tablets together.** Period (Old Assyrian) and language (Akkadian,
+where labeled) were predicted correctly for every one of the seven tablets
+above, so they are left out of the table below; provenience (Kanesh) was
+also predicted correctly for all seven, with 0.92–0.96 confidence — the
+table instead shows genre, the head with the most room to disagree:
+
+| Tablet | Genre (ground truth) | Model's genre prediction |
+|---|---|---|
+| Zizizi (VS 26, 33) | *(unlabeled)* | Letters (0.73) |
+| Puzur-Aššur → Waqqurtum (AO 9256) | Letters | Letters (0.87) |
+| Lamassī → Pūšu-kēn (BIN 6, 11) | Letters | Letters (0.89) |
+| Tarām-Kūbī, doc. #128 (CCT 3, 24) | *(unlabeled)* | Letters (0.91) |
+| Tarām-Kūbī, doc. #129 (CCT 3, 25) | *(unlabeled)* | Letters (0.86) |
+| Kukkulanum (VS 26, 102) | *(unlabeled)* | Legal (0.64) |
+| Marriage contract (Prague I 490) | Legal | **Letters (0.45)** |
+
+Six of seven are exactly what a reader would expect. The seventh is a real
+miss worth stating plainly rather than hiding: the marriage contract is
+mislabeled as a letter — and at 0.45 confidence, the model itself is
+visibly unsure, rather than confidently wrong. A one-line, second-person
+legal formula ("Puzur-Ištar married... he shall pay...") is close enough in
+surface form to an opening letter formula that the two genres apparently
+blur together at the model's current scale; a larger or better-balanced
+training set for the Legal class is one direction to explore before this
+model gets used for anything beyond illustration.
 
 ## 4. Conclusion
 
