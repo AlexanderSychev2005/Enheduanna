@@ -23,12 +23,13 @@ documentation of every quoted tablet.*
 
 ## 1. Introduction
 
-**Kanesh — a merchant colony in ancient central Anatolia (now Kültepe,
-Turkey) — was an Old Assyrian trade outpost (*kārum*) and, in Larsen's
-words, the earliest known commercial system in world history. The colony
-was part of the Old Assyrian long-distance trade of ca. 1950–1750 BCE, in
-which donkey caravans carried tin and textiles from Aššur into Anatolia to
-be exchanged there for silver and gold shipped back to Aššur.**
+**Kanesh — a merchant colony in ancient central Anatolia (Kültepe, near
+Kayseri, Turkey) — was an Old Assyrian trade outpost (*kārum*) and, in
+Larsen's words, the earliest attested commercial society in world history.
+The colony was part of a well-organized Old Assyrian long-distance trade
+of ca. 1950–1750 BCE, in which donkey caravans carried tin and fine
+textiles from Assur into Anatolia to be exchanged there for silver and
+gold shipped back to Assur.**
 *([1] Larsen 2015, back-cover blurb: "the earliest attested commercial
 society in world history"; [4] Veenhof 1997, p. 338: "[Assyrians] imported
 into Anatolia great quantities of tin... and fine woollen textiles to be
@@ -64,7 +65,7 @@ texts — about a third — ahead of debt notes and depositions.**
 2,000) of the documents are letters... Debt-note (553)... Testimony (260)")*
 
 **These merchants operated as family trading houses — a father based in
-Aššur running sons or agents stationed in Kanesh — and correspondence was
+Assur running sons or agents stationed in Kanesh — and correspondence was
 the instrument that held such a business together across roughly 1,000 km.**
 *([1] Larsen 2015, pp. 202–203: "In the case of the Assur-idi family we find
 a situation with a father in Assur and three sons who functioned as his
@@ -93,7 +94,7 @@ therefore a fundamentally important part of such a system"; [4] Veenhof
 records from ancient Mesopotamia or elsewhere and/or usually considered
 innovations of classical or early medieval times")*
 
-**Women in Aššur were independent economic agents, not merely custodians of
+**Women in Assur were independent economic agents, not merely custodians of
 the household: they manufactured the textiles that were the trade's
 principal export good, and are independently documented as owners,
 buyers, and heirs of houses and capital in their own right.**
@@ -142,7 +143,7 @@ the *naruqqum* and long-term partnership structures — argues directly that
 these mechanisms anticipate what are usually considered much later legal
 inventions, a claim made by a specialist Assyriologist from inside the
 field rather than by an outside popularizer *([4] Veenhof 1997, p. 336,
-Abstract)*. On the social side, Michel's work documents women in Aššur as
+Abstract)*. On the social side, Michel's work documents women in Assur as
 textile producers responsible for the trade's principal export good
 *([5] Michel 2006, p. 285, Résumé)*, and, separately, as independently
 attested buyers, heirs, and holders of capital and real estate *([6] Michel
@@ -191,7 +192,7 @@ the trained checkpoint on these seven tablets, all of which sit in the
 held-out test split the model was never trained on.
 
 **Puzur-Aššur to Waqqurtum (AO 9256), on weaving.** A husband in Kanesh
-gives his wife in Aššur precise technical instructions for the textiles she
+gives his wife in Assur precise technical instructions for the textiles she
 is producing for him to sell:
 
 > *"The thin textile you sent me, make (more) like it and send (them) to me
@@ -225,7 +226,7 @@ at least 10 shekels of silver per caravan trip) and a pointed domestic one
 
 **Tarām-Kūbī to Innaya (CCT 3, 24), on being left destitute.** Writing after
 her husband's departure, Tarām-Kūbī describes what happened at home during a
-famine in Aššur:
+famine in Assur:
 
 > *"When you left, you did not leave me silver, not even a single shekel!
 > You emptied the house and took (everything) out! After you had gone,
@@ -237,7 +238,7 @@ Two further tablets from the same archives are cited without a full
 quotation. A damaged letter from Imdī-ilum and Ištar-baštī to their
 daughter Zizizi (VS 26, 33) reproaches her, after the death of her first
 husband, for having remarried an Anatolian and drifted from her family in
-Aššur *([10] Michel 2020, document #50 "The Cost of a Remarriage," pp.
+Assur *([10] Michel 2020, document #50 "The Cost of a Remarriage," pp.
 106–107)*. A second letter from Tarām-Kūbī to Innaya (CCT 3, 25) — already
 present in our corpus with its photograph — mixes routine household
 business (silver, barley, unpaid debts) with a single urgent line asking
@@ -296,7 +297,7 @@ marriage and a clause on childlessness:
 > of Another Wife in Aššur," pp. 78–79)*
 
 Michel's broader study situates this clause as a normal, legally regulated
-practice for merchants who spent long periods away from Aššur — the
+practice for merchants who spent long periods away from Assur — the
 "amtum"/"aššutum" wife pairing, not a secret second household — which
 Michel describes as unique in the ancient Near East precisely because of
 the demands of this merchant lifestyle *([10] Michel 2020, §
