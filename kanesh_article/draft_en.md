@@ -23,26 +23,35 @@ documentation of every quoted tablet.*
 
 ## 1. Introduction
 
-Old Assyrian trade (ca. 1950–1750 BCE) saw merchants from the city of Aššur
-establish a trading colony (*kārum*) at Kanesh, in central Anatolia, through
-which they ran a private, long-distance trade in tin and textiles exchanged
-for silver *([1] Larsen 2015, ch. 14 "The Caravan Trade," pp. 171–188)*.
+Kanesh — a merchant colony in central Anatolia, at what is now Kültepe,
+Turkey — was the administrative hub of a network of roughly thirty Old
+Assyrian trading settlements (*kārū* and *wabartātum*) scattered across the
+Anatolian plateau, of which only two others have ever been identified:
+Boğazköy (ancient Ḫattuš) and Alişar (probably ancient Amkuwa), both
+yielding only a few dozen fragmentary tablets by comparison *([3] Veenhof
+1972, pp. xxi–xxii; [4] Veenhof 1997, p. 338; [10] Michel 2020, p. 6)*.
+Merchants from the city of Aššur ran this colony as a private, long-distance
+trade (ca. 1950–1750 BCE): donkey caravans carried tin and fine woollen
+textiles into Anatolia, to be exchanged there for the silver and gold
+shipped back to Aššur *([1] Larsen 2015, ch. 14 "The Caravan Trade," pp.
+171–188; [4] Veenhof 1997, p. 338)*. Larsen calls Kanesh "the earliest
+attested commercial society in world history" *([1] Larsen 2015, back-cover
+/ inside-jacket blurb — unpaginated jacket copy, not a numbered page)*.
 
 The scale of the resulting archive is itself worth stating plainly, since it
 is the reason this paper exists. Tablets from Kanesh have been looted since
-the late nineteenth century; systematic excavation resumed only in 1948
-under Tahsin Özgüç — interrupted by decades of war — and continues today
-under Fikri Kulakoğlu. Roughly 23,500 tablets are known in total (23,350
-from Kültepe itself, plus some 150 from neighboring Anatolian sites); the
-excavations after 1948 alone added over 17,000 tablets to the ca. 6,500
-already known before *([2] Anderson 2018, pp. 29–30, incl. footnote 52;
-cross-referenced there to Larsen 2015, ch. 2 "The Discovery," p. 17)*.
-Larsen calls Kanesh "the earliest attested commercial society in world
-history" *([1] Larsen 2015, back-cover / inside-jacket blurb)*. By genre,
-according to the Old Assyrian Text Project database, the largest single
-category is letters (2,113 of roughly 6,300 tagged texts — about a third),
-followed by debt notes (553) and depositions (260) *([2] Anderson 2018,
-p. 33, footnote 56)*.
+the late nineteenth century; systematic, controlled excavation resumed only
+in 1948 under Tahsin Özgüç, who directed the site for fifty-seven years, and
+has continued since 2006 under Fikri Kulakoğlu *([2] Anderson 2018, pp.
+29–30, incl. footnote 52; [1] Larsen 2015, ch. 2 "The Discovery," p. 17;
+[10] Michel 2020, pp. 6–8)*. Roughly 23,500 tablets are known in total
+(23,350 from Kültepe itself, plus some 150 from the handful of neighboring
+Anatolian sites above); the excavations after 1948 alone added over 17,000
+tablets to the ca. 6,500 already known before *([2] Anderson 2018, pp.
+29–30, footnote 52)*. By genre, according to the Old Assyrian Text Project
+database, the largest single category is letters (2,113 of roughly 6,300
+tagged texts — about a third), followed by debt notes (553) and depositions
+(260) *([2] Anderson 2018, p. 33, footnote 56)*.
 
 These merchants operated as family trading houses: a father based in Aššur,
 a son or agent stationed in Kanesh, and correspondence as the operational
@@ -77,10 +86,25 @@ This entire institutional inheritance — family firms, venture-style
 financing, credit and reputation mechanisms, women as independent economic
 actors — is recorded on the roughly 23,500 cuneiform tablets described
 above, the large majority of which have never been translated or
-systematically processed *([2] Anderson 2018, pp. 29–30)*. That imbalance
-between the size of the archive and the pace at which it can be read by
-hand is the starting point for this paper: can automatic processing make
-this archive tractable at scale?
+systematically processed *([2] Anderson 2018, pp. 29–30)*. Two further
+obstacles compound that imbalance. First, most tablets reached museum and
+private collections through undocumented, illicit digging rather than
+controlled excavation, so scholars usually cannot rely on archaeological
+provenance to reconstruct which texts belonged to the same original archive
+*([2] Anderson 2018, pp. 34–35)*. Second, the corpus is dense with
+homonymy, sharpened by *papponymy* — the practice of naming a son after his
+own father or grandfather — so that a single personal name can correspond
+to several different individuals across the archive, sometimes with dozens
+of attested patronymics for the same name *([2] Anderson 2018, pp. 36–38;
+[8] Bamman, Anderson & Smith 2013, p. 1)*. Larsen himself, after
+reconstructing one of the best-documented family archives at Kanesh,
+concluded that a full reconstruction of the original archives "on the basis
+of an internal analysis of texts without any archaeological context" is
+simply not achievable *([2] Anderson 2018, pp. 39–40, quoting Larsen 2002,
+pp. xiv–xv)*. That imbalance between the size and tangledness of the archive
+and the pace at which it can be read and disambiguated by hand is the
+starting point for this paper: can automatic processing make this archive
+tractable at scale?
 
 ## 2. Literature Review
 
