@@ -23,88 +23,110 @@ documentation of every quoted tablet.*
 
 ## 1. Introduction
 
-Kanesh — a merchant colony in central Anatolia, at what is now Kültepe,
-Turkey — was the administrative hub of a network of roughly thirty Old
-Assyrian trading settlements (*kārū* and *wabartātum*) scattered across the
-Anatolian plateau, of which only two others have ever been identified:
-Boğazköy (ancient Ḫattuš) and Alişar (probably ancient Amkuwa), both
-yielding only a few dozen fragmentary tablets by comparison *([3] Veenhof
-1972, pp. xxi–xxii; [4] Veenhof 1997, p. 338; [10] Michel 2020, p. 6)*.
-Merchants from the city of Aššur ran this colony as a private, long-distance
-trade (ca. 1950–1750 BCE): donkey caravans carried tin and fine woollen
-textiles into Anatolia, to be exchanged there for the silver and gold
-shipped back to Aššur *([1] Larsen 2015, ch. 14 "The Caravan Trade," pp.
-171–188; [4] Veenhof 1997, p. 338)*. Larsen calls Kanesh "the earliest
-attested commercial society in world history" *([1] Larsen 2015, back-cover
-/ inside-jacket blurb — unpaginated jacket copy, not a numbered page)*.
+**Kanesh — a merchant colony in ancient central Anatolia (now Kültepe,
+Turkey) — was an Old Assyrian trade outpost (*kārum*) and, in Larsen's
+words, the earliest known commercial system in world history. The colony
+was part of the Old Assyrian long-distance trade of ca. 1950–1750 BCE, in
+which donkey caravans carried tin and textiles from Aššur into Anatolia to
+be exchanged there for silver and gold shipped back to Aššur.**
+*([1] Larsen 2015, back-cover blurb: "the earliest attested commercial
+society in world history"; [4] Veenhof 1997, p. 338: "[Assyrians] imported
+into Anatolia great quantities of tin... and fine woollen textiles to be
+exchanged or sold, both directly and indirectly, for silver and gold, which
+were shipped back to Assur.")*
 
-The scale of the resulting archive is itself worth stating plainly, since it
-is the reason this paper exists. Tablets from Kanesh have been looted since
-the late nineteenth century; systematic, controlled excavation resumed only
-in 1948 under Tahsin Özgüç, who directed the site for fifty-seven years, and
-has continued since 2006 under Fikri Kulakoğlu *([2] Anderson 2018, pp.
-29–30, incl. footnote 52; [1] Larsen 2015, ch. 2 "The Discovery," p. 17;
-[10] Michel 2020, pp. 6–8)*. Roughly 23,500 tablets are known in total
-(23,350 from Kültepe itself, plus some 150 from the handful of neighboring
-Anatolian sites above); the excavations after 1948 alone added over 17,000
-tablets to the ca. 6,500 already known before *([2] Anderson 2018, pp.
-29–30, footnote 52)*. By genre, according to the Old Assyrian Text Project
-database, the largest single category is letters (2,113 of roughly 6,300
-tagged texts — about a third), followed by debt notes (553) and depositions
-(260) *([2] Anderson 2018, p. 33, footnote 56)*.
+**Kanesh was the administrative hub of a network of roughly thirty such
+settlements across the Anatolian plateau; of the handful named in the
+texts, only two others have ever been archaeologically identified, both
+yielding far fewer tablets than Kanesh itself.**
+*([4] Veenhof 1997, p. 338: "network of ca. thirty commercial settlements
+in Central Turkey"; [3] Veenhof 1972, p. xxii: "Of the some 20 such
+settlements mentioned in the ancient texts, only two have been identified
+besides Kaniš-Kültepe: those at Boğazköy (Hattuš) and Ališar (most probably
+Amkuwa), but they have yielded only a few dozen tablets in fragmentary
+condition")*
 
-These merchants operated as family trading houses: a father based in Aššur,
-a son or agent stationed in Kanesh, and correspondence as the operational
-instrument that held a business together across roughly 1,000 km
-*([1] Larsen 2015, ch. 16 "Families and Money," pp. 202–217)*. To finance
-individual caravan expeditions, merchants used the *naruqqum* ("money bag")
-— a joint fund pooled from 10 to 15 investors for a single venture lasting
-some 10 to 12 years, with profits distributed by share, a structure with an
-obvious resemblance to venture or joint-stock financing *([1] Larsen 2015,
-ch. 17 "Where Did the Money Come from?," pp. 217–227)*. Credit was extended
-at roughly 30% annual interest, agency relationships were formalized by
-contract, and reputation substituted for the courts that essentially did
-not exist for the enforcement of these obligations across distance —
-enforcement instead ran through correspondence *([1] Larsen 2015, ch. 14,
-pp. 182–184, and ch. 16–17, pp. 205, 217)*. Assyriologists themselves
-describe these features as unusually advanced for their time: the abstract
-of Veenhof's 1997 paper states directly that Old Assyrian trade shows
-"features not attested in earlier commercial records from ancient
-Mesopotamia or elsewhere and/or usually considered innovations of classical
-or early medieval times" *([4] Veenhof 1997, p. 336, Abstract)*.
+**Looting at Kültepe goes back to the late nineteenth century; controlled,
+scientific excavation began only in 1948 under Tahsin Özgüç and has
+continued since 2006 under Fikri Kulakoğlu. Roughly 23,500 tablets are now
+known — the large majority still unpublished.**
+*([2] Anderson 2018, p. 30, n. 52: "The current total is 23,500, of which
+23,350 come from Kültepe and about 150 tablets are known to have come from
+sites in the surrounding area in Anatolia"; [10] Michel 2020, p. 7:
+"Kültepe was first excavated by illicit diggers... before being the object
+of regular excavations by Turkish archaeologists. These started in 1948
+under the direction of Tahsin Özgüç... Since 2006, Kültepe excavations have
+been directed by Fikri Kulakoğlu")*
 
-Women in Aššur were independent economic agents in this system, not merely
-custodians of the household while their husbands traveled. They produced the
-textiles that were the trade's principal export good, from raw wool through
-to a finished, sellable product *([5] Michel 2006, p. 285, Résumé)*, and
-they are independently documented as buyers, heirs, and holders of capital
-and real estate in their own right *([6] Michel 2016, p. 83, Abstract, for
-the claim itself; pp. 84–85, § III "How Did Women Become Owners of a
-House?" for the purchase/inheritance detail)*.
+**By genre, letters are the single largest category of tagged Old Assyrian
+texts — about a third — ahead of debt notes and depositions.**
+*([2] Anderson 2018, p. 33, n. 56: "the largest category (one-third, ca.
+2,000) of the documents are letters... Debt-note (553)... Testimony (260)")*
 
-This entire institutional inheritance — family firms, venture-style
-financing, credit and reputation mechanisms, women as independent economic
-actors — is recorded on the roughly 23,500 cuneiform tablets described
-above, the large majority of which have never been translated or
-systematically processed *([2] Anderson 2018, pp. 29–30)*. Two further
-obstacles compound that imbalance. First, most tablets reached museum and
-private collections through undocumented, illicit digging rather than
-controlled excavation, so scholars usually cannot rely on archaeological
-provenance to reconstruct which texts belonged to the same original archive
-*([2] Anderson 2018, pp. 34–35)*. Second, the corpus is dense with
-homonymy, sharpened by *papponymy* — the practice of naming a son after his
-own father or grandfather — so that a single personal name can correspond
-to several different individuals across the archive, sometimes with dozens
-of attested patronymics for the same name *([2] Anderson 2018, pp. 36–38;
-[8] Bamman, Anderson & Smith 2013, p. 1)*. Larsen himself, after
-reconstructing one of the best-documented family archives at Kanesh,
-concluded that a full reconstruction of the original archives "on the basis
-of an internal analysis of texts without any archaeological context" is
-simply not achievable *([2] Anderson 2018, pp. 39–40, quoting Larsen 2002,
-pp. xiv–xv)*. That imbalance between the size and tangledness of the archive
-and the pace at which it can be read and disambiguated by hand is the
-starting point for this paper: can automatic processing make this archive
-tractable at scale?
+**These merchants operated as family trading houses — a father based in
+Aššur running sons or agents stationed in Kanesh — and correspondence was
+the instrument that held such a business together across roughly 1,000 km.**
+*([1] Larsen 2015, pp. 202–203: "In the case of the Assur-idi family we find
+a situation with a father in Assur and three sons who functioned as his
+agents in Anatolia... It seems... that Assur-idi in Assur was running a
+fairly tightly organised firm where he functioned as the boss of his three
+sons")*
+
+**To fund individual caravan expeditions beyond what one merchant could
+raise alone, they used the *naruqqum* — literally "a sack" — a joint fund
+that investors "threw their contributions into," typically run for ten to
+twelve years with thirteen or fourteen investors per known contract.**
+*([1] Larsen 2015, p. 220: "the so-called naruqqum, a word that really means
+'a sack'. One can imagine the original procedure in which investors would
+throw their contributions into such a bag"; p. 221: "In ten years he will
+render account"... "that contract will run for twelve years"... "Thirteen
+names are mentioned in Elamma's contract, fourteen in Amur-Ishtar's")*
+
+**Enforcement of debts and contracts across the 1,000 km between Assur and
+Kanesh ran on trust and correspondence rather than courts, which barely
+existed for this purpose — a system Assyriologists themselves describe as
+unusually advanced for its time.**
+*([1] Larsen 2015, p. 183: "it was obviously necessary to have a trusted
+representative in whatever town the credit agent was visiting... Trust was
+therefore a fundamentally important part of such a system"; [4] Veenhof
+1997, p. 336, Abstract: "features not attested in earlier commercial
+records from ancient Mesopotamia or elsewhere and/or usually considered
+innovations of classical or early medieval times")*
+
+**Women in Aššur were independent economic agents, not merely custodians of
+the household: they manufactured the textiles that were the trade's
+principal export good, and are independently documented as owners,
+buyers, and heirs of houses and capital in their own right.**
+*([5] Michel 2006, p. 285, Résumé: "les échanges à longue distance... les
+matériaux exportés sont principalement de l'étain... et des étoffes...
+produites localement par les femmes et les filles des marchands assyriens"
+["the long-distance trade... the materials exported are mainly tin... and
+textiles... produced locally by the wives and daughters of the Assyrian
+merchants"]; [6] Michel 2016, p. 83: "Purchase contracts involve Kaneš
+women buying houses, and in their testaments, the Assyrian merchants could
+decide to donate their houses to their wives, daughters or sisters")*
+
+This entire institutional record — family firms, joint-stock financing,
+credit running on trust, women as independent economic actors — sits on the
+roughly 23,500 tablets described above, most still unread. Two further
+obstacles compound that imbalance: most tablets reached collections through
+undocumented digging rather than controlled excavation, so provenance alone
+usually cannot reconstruct which texts belonged together; and the corpus is
+dense with homonymy, sharpened by *papponymy* — sons routinely named after
+their own fathers or grandfathers — so that a single name can correspond to
+several different people.
+*([2] Anderson 2018, p. 34: "the ca. 4,000 old texts were found through
+illicit diggings... the majority of our documents lack any promising
+archaeological context"; p. 36: "a hyperactive homonymic naming
+convention, sometimes occurring in the form of papponymy, in which a son is
+named after their father or grandfather"; p. 40, quoting Larsen 2002, p.
+xv: "it would obviously be impossible to arrive at a final and complete
+reconstruction of the original archives on the basis of an internal
+analysis of texts without any archaeological context")*
+
+That imbalance between the size and tangledness of the archive and the pace
+at which it can be read and disambiguated by hand is the starting point for
+this paper: can automatic processing make this archive tractable at scale?
 
 ## 2. Literature Review
 
