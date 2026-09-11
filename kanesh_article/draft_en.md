@@ -6,128 +6,120 @@ foregrounding architecture/metrics. See `article_outline.md` for the thesis
 list this draft is built from and `showcase_tablets.md` for full source
 documentation of every quoted tablet.*
 
-**Epigraph — not yet chosen, two candidates (see `article_outline.md`):**
-
-> *"Urgent! When you hear this letter, come, look to Aššur, your god, and
-> your home hearth, and let me see you in person while I am still alive!
-> Misery has entered our minds."*
-> — Tarām-Kūbī to Innaya (CCT 3, 25) [10]
-
-*or*
-
 > *"Who is this man who lives in your house and who is criticizing the
 > textiles when they get to him?"*
-> — Lamassī to Pūšu-kēn (BIN 6, 11) [10]
+> — Lamassī to Pūšu-kēn (BIN 6, 11)
 
 ---
 
 ## 1. Introduction
 
-**Kanesh — a merchant colony in ancient central Anatolia (Kültepe, near
-Kayseri, Turkey) — was an Old Assyrian trade outpost (*kārum*) and, in
-Larsen's words, the earliest attested commercial society in world history.
-The colony was part of a well-organized Old Assyrian long-distance trade
-of ca. 1950–1750 BCE, in which donkey caravans carried tin and fine
-textiles from Assur into Anatolia to be exchanged there for silver and
-gold shipped back to Assur.**
-*([1] Larsen 2015, back-cover blurb: "the earliest attested commercial
-society in world history"; [4] Veenhof 1997, p. 338: "[Assyrians] imported
-into Anatolia great quantities of tin... and fine woollen textiles to be
-exchanged or sold, both directly and indirectly, for silver and gold, which
-were shipped back to Assur.")*
+Kanesh – a merchant colony in ancient central Anatolia (Kültepe, near
+Kayseri, Turkey) that was an Old Assyrian trade outpost (*kārum*) and the
+first attested commercial system in world history. The city was a part of
+the well-organized Old Assyrian long-distance trade of around 2000–1750 BC
+in which donkey caravans carried tin (essential for the Anatolian
+production of bronze) and fine textiles from Assur to Anatolia to be
+exchanged there for silver and gold shipped back to Assur (1,2).
 
-**Kanesh was the administrative hub of a network of roughly thirty such
-settlements across the Anatolian plateau; of the handful named in the
-texts, only two others have ever been archaeologically identified, both
-yielding far fewer tablets than Kanesh itself.**
-*([4] Veenhof 1997, p. 338: "network of ca. thirty commercial settlements
-in Central Turkey"; [3] Veenhof 1972, p. xxii: "Of the some 20 such
-settlements mentioned in the ancient texts, only two have been identified
-besides Kaniš-Kültepe: those at Boğazköy (Hattuš) and Ališar (most probably
-Amkuwa), but they have yielded only a few dozen tablets in fragmentary
-condition")*
+Kanesh was an administrative centre of around 30 commercial settlements in
+ancient Anatolia. Considering other settlements mentioned in ancient texts,
+only two have been identified besides Kanesh, those at Boğazköy (Hattusa)
+and Alisar (most probably Amkuwa), but compared with Kanesh, there are a
+few fragmented dozen tablets left, and these date from a slightly later
+period (2,3).
 
-**Looting at Kültepe goes back to the late nineteenth century; controlled,
-scientific excavation began only in 1948 under Tahsin Özgüç and has
-continued since 2006 under Fikri Kulakoğlu. Roughly 23,500 tablets are now
-known — the large majority still unpublished.**
-*([2] Anderson 2018, p. 30, n. 52: "The current total is 23,500, of which
-23,350 come from Kültepe and about 150 tablets are known to have come from
-sites in the surrounding area in Anatolia"; [10] Michel 2020, p. 7:
-"Kültepe was first excavated by illicit diggers... before being the object
-of regular excavations by Turkish archaeologists. These started in 1948
-under the direction of Tahsin Özgüç... Since 2006, Kültepe excavations have
-been directed by Fikri Kulakoğlu")*
+Kanesh investigations started in the 19th century. The city was first
+excavated by illegal diggers and scholars looking for written sources.
+Regular excavations by Turkish archaeologists started in 1948 after world
+wars under the direction of Tahsin Özgüç, and since 2006, Kültepe
+excavations have been directed by Fikri Kulakoğlu, who invite many
+colleagues from different fields to unveil new layers about the daily life
+at Kanesh. Now, approximately 23,500 cuneiform tablets are found, the
+excavations since 1948 have added 17,000 tablets. Over 23,350 are from
+Kanesh and about 150 tablets are from sites from the surrounding area in
+Anatolia (4,5). Regarding the genre, thanks to the work of Thomas Hertel
+and the OATP, we know that letters are the largest category (one third,
+about 2,000) of documents (4).
 
-**By genre, letters are the single largest category of tagged Old Assyrian
-texts — about a third — ahead of debt notes and depositions.**
-*([2] Anderson 2018, p. 33, n. 56: "the largest category (one-third, ca.
-2,000) of the documents are letters... Debt-note (553)... Testimony (260)")*
+*Fig. 1.1. Map of Old Assyrian trade network in Anatolia. Cartography by
+Ivan d'Hostingue and Gojko Barjamovic 2010*
 
-**These merchants operated as family trading houses — a father based in
-Assur running sons or agents stationed in Kanesh — and correspondence was
-the instrument that held such a business together across roughly 1,000 km.**
-*([1] Larsen 2015, pp. 202–203: "In the case of the Assur-idi family we find
-a situation with a father in Assur and three sons who functioned as his
-agents in Anatolia... It seems... that Assur-idi in Assur was running a
-fairly tightly organised firm where he functioned as the boss of his three
-sons")*
+Historically, family plays a vital role when it comes to long-distance
+commerce. For example, the Assur-idi family is a perfect example of family
+firm, a father in Assur was running a fairly tightly organised business
+where he was a boss and three sons who functioned as his agents in
+Anatolia where correspondence was the only way to contact to each other
+being 1,000 kilometres away (1).
 
-**To fund individual caravan expeditions beyond what one merchant could
-raise alone, they used the *naruqqum* — literally "a sack" — a joint fund
-that investors "threw their contributions into," typically run for ten to
-twelve years with thirteen or fourteen investors per known contract.**
-*([1] Larsen 2015, p. 220: "the so-called naruqqum, a word that really means
-'a sack'. One can imagine the original procedure in which investors would
-throw their contributions into such a bag"; p. 221: "In ten years he will
-render account"... "that contract will run for twelve years"... "Thirteen
-names are mentioned in Elamma's contract, fourteen in Amur-Ishtar's")*
+The naruqqum was a long-term joint-stock company or partnership that was
+used to concentrate large amounts of capital in the hands of competent
+merchants in the overland commerce. The term literally means "a sack",
+referring to original practice where investors would throw their
+contributions into a bag. The contracts ran for 10-12 years and premature
+withdrawal of the investment meant that the investor would not share in
+the profit (1).
 
-**Enforcement of debts and contracts across the 1,000 km between Assur and
-Kanesh ran on trust and correspondence rather than courts, which barely
-existed for this purpose — a system Assyriologists themselves describe as
-unusually advanced for its time.**
-*([1] Larsen 2015, p. 183: "it was obviously necessary to have a trusted
-representative in whatever town the credit agent was visiting... Trust was
-therefore a fundamentally important part of such a system"; [4] Veenhof
-1997, p. 336, Abstract: "features not attested in earlier commercial
-records from ancient Mesopotamia or elsewhere and/or usually considered
-innovations of classical or early medieval times")*
+The management of credit sales and debt collection across the trade
+network mostly relied on trust and correspondence. Because credit agents
+were moving around all the time, some local representatives had to bring
+them before witnesses and make them declare their intentions without the
+original debt notes, making legal processes difficult. However, the
+documentation tells that the traders made up with different commercial and
+judicial practices including contractual and legal rules for coping with
+insolvent, absent or unwilling debtors, and issuing bearer bonds, which, as
+Assyriologists point out, was millennia ahead of European medieval
+commercial innovations (1,2).
 
-**Women in Assur were independent economic agents, not merely custodians of
-the household: they manufactured the textiles that were the trade's
-principal export good, and are independently documented as owners,
-buyers, and heirs of houses and capital in their own right.**
-*([5] Michel 2006, p. 285, Résumé: "les échanges à longue distance... les
-matériaux exportés sont principalement de l'étain... et des étoffes...
-produites localement par les femmes et les filles des marchands assyriens"
-["the long-distance trade... the materials exported are mainly tin... and
-textiles... produced locally by the wives and daughters of the Assyrian
-merchants"]; [6] Michel 2016, p. 83: "Purchase contracts involve Kaneš
-women buying houses, and in their testaments, the Assyrian merchants could
-decide to donate their houses to their wives, daughters or sisters")*
+Women in Assur were housewives and businesswomen at the same time. They
+managed the household and the maintenance of the building housing the
+family, manufactured the textiles that were the main export good. Also,
+they could be owners, buyers, and heirs of houses (5–7).
 
-This entire institutional record — family firms, joint-stock financing,
-credit running on trust, women as independent economic actors — sits on the
-roughly 23,500 tablets described above, most still unread. Two further
-obstacles compound that imbalance: most tablets reached collections through
-undocumented digging rather than controlled excavation, so provenance alone
-usually cannot reconstruct which texts belonged together; and the corpus is
-dense with homonymy, sharpened by *papponymy* — sons routinely named after
-their own fathers or grandfathers — so that a single name can correspond to
-several different people.
-*([2] Anderson 2018, p. 34: "the ca. 4,000 old texts were found through
-illicit diggings... the majority of our documents lack any promising
-archaeological context"; p. 36: "a hyperactive homonymic naming
-convention, sometimes occurring in the form of papponymy, in which a son is
-named after their father or grandfather"; p. 40, quoting Larsen 2002, p.
-xv: "it would obviously be impossible to arrive at a final and complete
-reconstruction of the original archives on the basis of an internal
-analysis of texts without any archaeological context")*
+All of that historical heritage is still unread. First, most tablets are
+known because of illicit diggings, so they lack needed archaeological
+context to reconstruct the original archives of those merchants, so there
+will inevitably be tablets whether broken by time or lacking enough data
+to determine the context. Second, the corpus is full of homonyms, and
+papponymy makes it worse, as there was a practice when sons were usually
+named after their fathers and grandfathers. As a result, a single name may
+refer to different people in the corpus and the long-term effect of
+papponymy is accumulative name redundancy over multiple generations (4).
 
-That imbalance between the size and tangledness of the archive and the pace
-at which it can be read and disambiguated by hand is the starting point for
-this paper: can automatic processing make this archive tractable at scale?
+Working with an overwhelming amount of highly interrelated "big data"
+makes the manual reconstruction impossible. As historians note, the lack
+of provenance requires using computational models and network analysis to
+work with all possible archives (4,8).
+
+*Editorial note: the numbers above are live Zotero (NLM/Vancouver,
+citation-sequence) citations, matching the Word draft `article.docx`. The
+bracketed `[N]` citations in §2–4 below are a provisional numbering from
+before the switch to Zotero and do not yet refer to the same list — they
+will be reconciled once those sections get their own Zotero pass.*
+
+**References (Introduction, Zotero/Vancouver numbering):**
+
+1. Larsen MT. *Ancient Kanesh: A Merchant Colony in Bronze Age Anatolia*.
+   Cambridge: Cambridge University Press; 2015.
+2. Veenhof KR. 'Modern' Features in Old Assyrian Trade. *J Econ Soc Hist
+   Orient*. 1997;40(4):336–66.
+3. Veenhof KR. *Aspects of Old Assyrian Trade and Its Terminology*. Leiden:
+   E. J. Brill; 1972. (Studia et Documenta ad Iura Orientis Antiqui
+   Pertinentia; X).
+4. Anderson AG. *The Old Assyrian Social Network: An Analysis of the Texts
+   from Kültepe-Kanesh (1950–1750 B.C.E.)* [PhD Thesis]. [Cambridge, MA]:
+   Harvard University, Department of Near Eastern Languages and
+   Civilizations; 2018.
+5. Michel C. *Women of Assur and Kanesh: Texts from the Archives of
+   Assyrian Merchants*. Atlanta: SBL Press; 2020. (Writings from the
+   Ancient World; no. 42).
+6. Michel C. Femmes et production textile à Aššur au début du IIe
+   millénaire av. J.-C. *Tech Cult*. 2006;46:285–301.
+7. Michel C. Women and Real Estate in the Old Assyrian Texts. *Orient*.
+   2016;51:83–94.
+8. Anderson AG. Disambiguating the Old Assyrian Social Networks Using NLP
+   and Network Theory [Internet]. 2019. Available from:
+   https://www.researchgate.net/publication/336460070_Disambiguating_the_Old_Assyrian_Social_Networks_Using_NLP_and_Network_Theory
 
 ## 2. Literature Review
 
@@ -350,7 +342,7 @@ material the model is trained on.
 
 ---
 
-## References
+## References (§2–4, provisional — pending Zotero pass)
 
 1. Larsen, Mogens Trolle. 2015. *Ancient Kanesh: A Merchant Colony in
    Bronze Age Anatolia*. Cambridge: Cambridge University Press.
