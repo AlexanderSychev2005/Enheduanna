@@ -123,48 +123,71 @@ will be reconciled once those sections get their own Zotero pass.*
 
 ## 2. Literature Review
 
-The historical and institutional backdrop above draws on two standard
-references: Larsen's monograph on the organization of the Kanesh *kārum*,
-its family houses, credit, and caravan trade *([1] Larsen 2015; ch. 1
-"Introduction," p. 1, is the fastest entry point)*, and Veenhof's
-foundational philological and economic study of Old Assyrian trade
-terminology and institutions, still the field's reference work half a
-century after publication *([3] Veenhof 1972; Preface, p. xiii)*. Veenhof's
-later paper on the "modern" features of Old Assyrian trade law — including
-the *naruqqum* and long-term partnership structures — argues directly that
-these mechanisms anticipate what are usually considered much later legal
-inventions, a claim made by a specialist Assyriologist from inside the
-field rather than by an outside popularizer *([4] Veenhof 1997, p. 336,
-Abstract)*. On the social side, Michel's work documents women in Assur as
-textile producers responsible for the trade's principal export good
-*([5] Michel 2006, p. 285, Résumé)*, and, separately, as independently
-attested buyers, heirs, and holders of capital and real estate *([6] Michel
-2016, p. 83, Abstract)*.
+### 2.1. The Old Assyrian economic system and the tablets as archive
 
-A separate strand of literature establishes that quantitative and
-computational methods have already produced genuinely new historical
-knowledge from this specific corpus, which is the direct precedent this
-paper builds on. Barjamovic, Chaney, Coşar, and Hortaçsu built a structural
-gravity model of Bronze Age trade from roughly 12,000 digitized Old Assyrian
-tablets and used it to statistically locate lost ancient cities, resolving
-long-standing disputes among historians — published, notably, in a leading
-economics journal rather than an Assyriological one *([7] Barjamovic et al.
-2019/2017 NBER working-paper PDF, pp. 1–2, Abstract)*. Bamman, Anderson,
-and Smith applied computational social network analysis directly to the
-Kanesh corpus to infer the relative social rank of individual merchants from
-correspondence patterns, with a co-author (Noah A. Smith) who is a
-recognized NLP researcher — an explicit bridge between Assyriology and
-computer science on this exact material *([8] Bamman, Anderson & Smith
-2013, p. 1, § 1 "Introduction")*. Anderson's dissertation performs a
-quantitative, network-based reconstruction of Old Assyrian society from
-roughly 6,000 of the archive's ~23,000 tablets, including hierarchical
-social status and family genealogies *([2] Anderson 2018, p. iii, Abstract,
-for the overall claim; pp. 29–30 for the tablet-count figure)*. Most
-directly relevant to the present paper, Anderson separately describes an
-NLP and network-theory pipeline built specifically to disambiguate
-homonymous individuals in the Old Assyrian corpus — the closest existing
-precedent, by its own title, to "NLP classification of cuneiform archives"
-*([9] Anderson 2019, Abstract — the ResearchGate page is not paginated)*.
+The tablets found in kārum Kanesh uncovered the knowledge about the first
+attested commercial system in the world. Foundational works by Veenhof
+(1972, 1997) and Larsen (2015) demonstrate that Kanesh was not just a
+local trade post, but the hub of a long-distance caravan trade system.
+Business deals relied mostly on correspondence and trust while making
+contracts, including long-term joint-stock partnerships (naruqqum),
+credit management, and conflict resolution at a distance of 1,000
+kilometres away.
+
+The archive is not limited to economy but includes the culture, language,
+religion, and private lives of individuals — for example, the emotional
+correspondence between the men who were merchants in Kanesh and their
+wives in Assur, who were entrepreneurs and produced textiles in their
+homes. This genre diversity creates a real classification problem for
+natural language processing (NLP) models.
+
+### 2.2. Quantitative and network approaches for the Kanesh corpus
+
+Considering the number of tablets found — around 23,500 — computational
+and quantitative methods can challenge traditional manual epigraphy.
+Barjamovic et al. (2019) used a structural gravity model to analyse a
+large dataset of commercial records produced by Assyrian merchants in the
+19th century BCE, in order to locate lost ancient cities without knowing
+their geographical coordinates.
+
+Quantitative research so far has mostly focused on the biographical
+structure of the trade network and cannot cope with a high density of
+homonyms — specifically papponymy — which makes identity resolution a
+difficult task. To address this, Bamman et al. (2013) proposed a
+probabilistic latent-variable model for inferring unique individuals and
+their social rank. Later, Anderson (2018, 2019) applied natural language
+processing (NLP) and social network analysis (SNA) for homonym
+disambiguation and for determining the demographic characteristics of age
+cohorts. This body of work does not solve the document classification
+problem: reconstructing fragmentary cuneiform tablets remains extremely
+difficult without knowing their provenance, and without attributing them
+directly to specific private archives or business entities based on
+textual and visual features.
+
+### 2.3. Deep learning for ancient languages
+
+Automated processing of ancient texts has developed from rule-based
+syntactic analysers to deep learning architectures. Regarding cuneiform,
+Lazar et al. (2021) demonstrated the potential of fine-tuning
+multilingual BERT (mBERT) on a transliterated Akkadian corpus of roughly
+10,000 tablets from the Open Richly Annotated Cuneiform Corpus (ORACC),
+showing that masked language modelling (MLM) directly corresponds to
+philological lacuna reconstruction based on context.
+
+A parallel line of work on deep-learning text restoration developed
+independently in Greek epigraphy. Pythia, the first such system, already
+outperformed expert epigraphists on damaged Greek inscriptions, reaching a
+character error rate of 30.1% against 57.3% for human epigraphists working
+under the same conditions. Its successor, Ithaca, restructured the task
+around a single shared transformer torso feeding three separate task
+heads — restoration, geographic attribution, and chronological
+attribution — trained jointly on 178,551 ancient Greek inscriptions, a
+direct precedent for a model that predicts several tablet attributes
+jointly rather than restoration alone. Ithaca's own successor, Aeneas,
+further extended this architecture with a vision branch, conditioning
+geographic attribution on a photograph of the inscription and handling
+gaps of unknown length — the direct architectural precedent for combining
+textual and visual input within a single classification model.
 
 ## 3. Methodology: Selected Examples
 
@@ -175,13 +198,15 @@ is trained on a large corpus that includes tablets from Kanesh among its
 sources; on the held-out test portion of that corpus it reaches 96.2%
 accuracy on period, 96.2% on genre, 98.6% on language, and 87.0% on
 provenience across 38 possible places of origin — including 100% recall on
-Kanesh itself. This section does not describe the model's architecture or
-report comparative metrics further; instead, it presents the kind of
-material the model is trained and evaluated on, through a small number of
-real tablets, each independently verified against Michel's published
-translations [10]. Every prediction shown below is the actual output of
-the trained checkpoint on these seven tablets, all of which sit in the
-held-out test split the model was never trained on.
+Kanesh itself. This section does not describe the model's architecture
+further; instead, it presents the kind of material the model is trained
+and evaluated on, through a small number of real tablets, each
+independently verified against Michel's published translations [10].
+Every prediction shown below is the actual output of the trained
+checkpoint on these seven tablets, all of which sit in the held-out test
+split the model was never trained on. Across the 347 masked tokens in
+these seven tablets combined, the model recovers 76.4% on its first guess
+and 87.9% within its top three guesses.
 
 **Puzur-Aššur to Waqqurtum (AO 9256), on weaving.** A husband in Kanesh
 gives his wife in Assur precise technical instructions for the textiles she
@@ -264,15 +289,13 @@ recover them one at a time, from context alone:
 |---|---|---|
 | `ha` | `ha` | ✅ |
 | divine determinative `D` (before "Enlil-bāni") | `D` | ✅ |
-| `qe` (in "i-la₂-qe₂-ši₂," "he will receive it") | `qe` | ✅ (text-only alone predicted `ši` — wrong) |
+| `qe` (in "i-la₂-qe₂-ši₂," "he will receive it") | `qe` | ✅ |
 | `tum` | `ul` | ❌ |
 | `zu` (in the witness name "Azutaya") | `hu` | ❌ |
 
 Overall, the model recovered 32 of the 41 masked signs correctly on its
-first guess (78%) — in line with the aggregate figures above — and the one
-case flagged in the table is a small, concrete illustration of what the
-photograph adds: the text-only model guesses wrong where the vision model,
-seeing the same masked text plus the tablet's photograph, gets it right.
+first guess (78%), close to the 76.4% aggregate across all seven tablets
+reported above.
 
 **A marriage contract (Prague I 490).** The archive's legal genre extends
 beyond debt and transport to family law. This contract, arranged after the
