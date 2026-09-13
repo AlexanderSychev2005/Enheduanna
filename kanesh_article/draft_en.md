@@ -205,8 +205,8 @@ independently verified against Michel's published translations [10].
 Every prediction shown below is the actual output of the trained
 checkpoint on these seven tablets, all of which sit in the held-out test
 split the model was never trained on. Across the 347 masked tokens in
-these seven tablets combined, the model recovers 76.4% on its first guess
-and 87.9% within its top three guesses.
+these seven tablets combined, the model recovers 76.4% on its first guess,
+87.9% within its top three guesses, and 90.5% within its top five guesses.
 
 **Puzur-Aššur to Waqqurtum (AO 9256), on weaving.** A husband in Kanesh
 gives his wife in Assur precise technical instructions for the textiles she

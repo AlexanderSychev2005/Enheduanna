@@ -619,22 +619,41 @@ def main() -> None:
         out.append(f"**Masked input ({len(positions)} positions):**\n> {masked_display}\n")
 
         out.append("### Restoration (masked-token predictions)\n")
-        out.append("| # | true token | text-only top-1 | text-only top-3 | vision top-1 | vision top-3 | text-only correct | vision correct |")
-        out.append("|---|---|---|---|---|---|---|---|")
+        out.append("| # | true token | text-only top-1 | text-only top-3 | text-only top-5 | vision top-1 | vision top-3 | vision top-5 | text-only correct | vision correct | text-only top-3 hit | vision top-3 hit | text-only top-5 hit | vision top-5 hit |")
+        out.append("|---|---|---|---|---|---|---|---|---|---|---|---|---|---|")
         text_correct = vision_correct = 0
+        text_top3_hits = vision_top3_hits = 0
+        text_top5_hits = vision_top5_hits = 0
         for i, (pos, true_id) in enumerate(zip(positions, true_tokens), 1):
             true_tok = tokenizer.convert_ids_to_tokens([true_id])[0]
-            t_top3 = topk_at(text_out["logits"], pos, banned_ids, tokenizer)
-            v_top3 = topk_at(vision_out["logits"], pos, banned_ids, tokenizer)
-            t_ok = t_top3[0] == true_tok
-            v_ok = v_top3[0] == true_tok
+            t_top5 = topk_at(text_out["logits"], pos, banned_ids, tokenizer, k=5)
+            v_top5 = topk_at(vision_out["logits"], pos, banned_ids, tokenizer, k=5)
+            t_top3, v_top3 = t_top5[:3], v_top5[:3]
+            t_ok = t_top5[0] == true_tok
+            v_ok = v_top5[0] == true_tok
+            t_top3_ok = true_tok in t_top3
+            v_top3_ok = true_tok in v_top3
+            t_top5_ok = true_tok in t_top5
+            v_top5_ok = true_tok in v_top5
             text_correct += t_ok
             vision_correct += v_ok
-            out.append(f"| {i} | `{true_tok}` | `{t_top3[0]}` | {', '.join(f'`{t}`' for t in t_top3)} | "
-                       f"`{v_top3[0]}` | {', '.join(f'`{t}`' for t in v_top3)} | {'✅' if t_ok else '❌'} | {'✅' if v_ok else '❌'} |")
+            text_top3_hits += t_top3_ok
+            vision_top3_hits += v_top3_ok
+            text_top5_hits += t_top5_ok
+            vision_top5_hits += v_top5_ok
+            out.append(f"| {i} | `{true_tok}` | `{t_top5[0]}` | {', '.join(f'`{t}`' for t in t_top3)} | "
+                       f"{', '.join(f'`{t}`' for t in t_top5)} | `{v_top5[0]}` | "
+                       f"{', '.join(f'`{t}`' for t in v_top3)} | {', '.join(f'`{t}`' for t in v_top5)} | "
+                       f"{'✅' if t_ok else '❌'} | {'✅' if v_ok else '❌'} | "
+                       f"{'✅' if t_top3_ok else '❌'} | {'✅' if v_top3_ok else '❌'} | "
+                       f"{'✅' if t_top5_ok else '❌'} | {'✅' if v_top5_ok else '❌'} |")
         n_pos = len(positions)
         out.append(f"\nTop-1 accuracy on this example: text-only {text_correct}/{n_pos} "
-                   f"({text_correct / n_pos:.0%}), vision {vision_correct}/{n_pos} ({vision_correct / n_pos:.0%})\n")
+                   f"({text_correct / n_pos:.0%}), vision {vision_correct}/{n_pos} ({vision_correct / n_pos:.0%})")
+        out.append(f"\nTop-3 accuracy on this example: text-only {text_top3_hits}/{n_pos} "
+                   f"({text_top3_hits / n_pos:.0%}), vision {vision_top3_hits}/{n_pos} ({vision_top3_hits / n_pos:.0%})")
+        out.append(f"\nTop-5 accuracy on this example: text-only {text_top5_hits}/{n_pos} "
+                   f"({text_top5_hits / n_pos:.0%}), vision {vision_top5_hits}/{n_pos} ({vision_top5_hits / n_pos:.0%})\n")
 
         out.append("### Metadata predictions\n")
         out.append(format_metadata_table(label_configs, truth, text_pred, vision_pred))
