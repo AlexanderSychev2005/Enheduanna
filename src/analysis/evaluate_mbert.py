@@ -4,6 +4,8 @@ import json
 import argparse
 from typing import Optional
 
+sys.stdout.reconfigure(encoding="utf-8")
+
 import numpy as np
 import torch
 from safetensors.torch import load_file
@@ -116,6 +118,8 @@ if __name__ == "__main__":
     parser.add_argument("--crops_dir", type=str, default=r"C:\Programming\akkadian\data\vision_dataset_final")
     parser.add_argument("--include_unreviewed", action="store_true")
     parser.add_argument("--output_file", type=str, default="evaluation_report_mbert.json")
+    parser.add_argument("--tablet_ids_file", type=str, default=None,
+                         help="Optional path to a text file of tablet_ids (one per line) to restrict evaluation to a subset")
     args = parser.parse_args()
 
     tokenizer = AutoTokenizer.from_pretrained(args.checkpoint, use_fast=False)
@@ -137,6 +141,11 @@ if __name__ == "__main__":
             marked = [mark_damage_signals(t) for t in examples["text"]]
             return tokenizer(marked, truncation=True, max_length=args.max_length)
         eval_dataset = hf_ds[args.split].map(tokenize_fn, batched=True, remove_columns=["text", "signs"])
+
+    if args.tablet_ids_file:
+        with open(args.tablet_ids_file, "r", encoding="utf-8") as f:
+            keep_ids = {line.strip() for line in f if line.strip()}
+        eval_dataset = eval_dataset.filter(lambda r: r["tablet_id"] in keep_ids)
     print(f"{args.split} samples: {len(eval_dataset)}")
 
     label_config_path = args.label_config or (
@@ -213,6 +222,10 @@ if __name__ == "__main__":
     labels_by_task = {task: np.asarray(label_ids[i + 1]).reshape(-1) for i, task in enumerate(tasks)}
     per_class = per_class_report(preds_by_task, labels_by_task, label_configs)
 
+    with open(args.output_file, "w", encoding="utf-8") as f:
+        json.dump({"metrics": metrics, "per_class": per_class}, f, indent=2, ensure_ascii=False)
+    print(f"\nSaved report to {args.output_file}")
+
     print("\nPer-class breakdown:")
     for task, rep in per_class.items():
         print(f"  --- {task} ---")
@@ -221,7 +234,3 @@ if __name__ == "__main__":
                 continue
             print(f"    {cls}: f1={stats['f1-score']:.3f} precision={stats['precision']:.3f} "
                   f"recall={stats['recall']:.3f} support={int(stats['support'])}")
-
-    with open(args.output_file, "w", encoding="utf-8") as f:
-        json.dump({"metrics": metrics, "per_class": per_class}, f, indent=2, ensure_ascii=False)
-    print(f"\nSaved report to {args.output_file}")
